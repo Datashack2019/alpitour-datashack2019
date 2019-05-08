@@ -73,12 +73,14 @@ body {
 
 .sidebar{
   grid-column-start:1;
+  position: -webkit-sticky;
   position:sticky;
   top:0;
   width: 23vw;
   font-family:'Poppins', sans-serif;
   font-weight: 400;
   font-size: 20px;
+  padding-top: 20px;
 
 
 }
@@ -135,7 +137,7 @@ a:hover {
 
 .main-footer {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto;
   margin-top: 100px;
 
 }
@@ -180,6 +182,12 @@ a:hover {
 
 .sub-footer_4{
   grid-column-start: 4;
+}
+.sub-footer_5{
+  grid-column-start: 5;
+}
+.sub-footer_6{
+  grid-column-start:6;
 }
 
 

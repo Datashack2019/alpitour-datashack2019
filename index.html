@@ -19,12 +19,10 @@
     <div class="goto-pipeline">
     <a href="#">Go to the pipeline</a></div>
     <div class="goto-dashboard"><a href="#"> Go to the Github repo</a></div>
-
-    <h1 class="main-title">Alpitour predictive model</h1>
-
+    <h1 class="main-title">Alpitour predictive model</h1></div>
     <div id="sphere"></div>
 
-  </div>
+
   <div class="sidebar">
     <ol>
       <li> <a href="#1">Introduction and scope</a></li>
@@ -218,6 +216,7 @@
   <p><!--Tabella !-->
     Here we can see an example of how the data was labelled in order to fit and evaluate the classification models. This is referring to departures three months ahead:
     </p>
+    <img src="img/4.6.png" width="100%" height="auto">
     <p>Moving average convergence divergence (MACD) was used to capture the momentum in demand for each time step (week). Specifically:</p>
     <ul>
       <li>MACD line: MA(ORD,12) - MA(ORD,26)</li>
@@ -282,8 +281,10 @@
         <li>Binary classification of average future weekly order demand (increase or decrease) using a fully-connected neural network.</li>
       </ul>
       <p>In addition to these models, we provide the company with a generalized code repository that will be a pipeline for software engineers and data scientists to replicate our methodology and expand the predictive capability to different destinations.
-        This is the result of our final prediction for L’Avana. Gaussian process regressor provides a confidence interval with upper and lower bounds for the predicted values. In this way, the supply manager can also take into account quantitatively the possible errors of the future predictions and make his decision accordingly.
+        This is the result of our final prediction for L’Avana. Gaussian process regressor provides a confidence interval with upper and lower bounds for the predicted values.
+        In this way, the supply manager can also take into account quantitatively the possible errors of the future predictions and make his decision accordingly.
       </p>
+      <img src="img/6.1.png" width="100%" height="auto">
       <p>Interesting avenues for potential development include:</p>
       <ul>
         <li>Obtaining more data (internal and external) and generate more features to improve the quality of our predictions</li>

@@ -1,15 +1,19 @@
+
+
+
+
 var my_canvas = function(p){
 
-  p.setup= function() {
-    var canvas=p.createCanvas(500,500);
-    ppcanvas.parent('sphere');
-    // put setup code here
+  p.setup = function() {
+    var canvas = p.createCanvas(500,500);
+    canvas.parent('sphere');
+
   }
 
  p.draw = function() {
-    fill(red);
-    ellipse(width/2,height/2, 50);
-    // put drawing code here
+    p.fill('red');
+    p.ellipse(p.mouseX,p.mouseY,100);
+
   }
 
 }

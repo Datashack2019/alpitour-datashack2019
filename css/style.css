@@ -55,6 +55,10 @@ body {
   grid-column-start: 2;
 
 }
+.main_image #sphere{
+  grid-column-start: 2;
+
+}
 
 .page{
   display: grid;

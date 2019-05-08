@@ -1,0 +1,179 @@
+
+/*
+font-family: 'IBM Plex Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  /* The image used */
+  background-image: url("background_im.jpg");
+
+
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+
+}
+
+.top {
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+}
+.goto-pipeline {
+  grid-column-start: 1;
+}
+
+.goto-dashboard {
+  grid-column-start: 3;
+  text-align:right;
+
+}
+.top a{
+  color: #000000;
+}
+.page{
+  display: grid;
+  grid-template-columns: 25vw auto auto;
+}
+
+
+
+.side-empty{
+  grid-column-start: 3;
+  width:10vw;
+
+}
+.sidebar{
+  position: fixed;
+  width: 23vw;
+  font-family:'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.main-title {
+  grid-column-start: 2;
+  font-family: 'Poppins',sans-serif;
+  font-size: 4em;
+  text-align: center;
+  font-weight: 500;
+}
+
+.sub-title {
+  font-family: 'Poppins',sans-serif;
+  font-size: 1em;
+  text-align: left;
+  font-weight: 500;
+
+}
+
+a {
+  text-decoration:none;
+  color:#000000;
+  font-family: 'Poppins',sans-serif;
+
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+.sub-sub-title {
+  font-family: 'Poppins',sans-serif;
+  font-size: 0.8em;
+  text-align: left;
+  font-weight: 500;
+
+}
+
+.paragraph {
+  grid-column-start: 2;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.5em;
+  text-align: left;
+  font-weight: 300;
+}
+
+/**** Footer ****/
+
+.main-footer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+
+}
+
+.sub-footer_1{
+  grid-column-start: 1;
+  font-family: 'Poppins', sans-serif; ;
+  font-weight: 500 ;
+  font-size: 18px ;
+}
+.sub-footer_2{
+  grid-column-start: 2;
+}
+
+.sub-footer_2 span{
+  font-family: 'Poppins', sans-serif; ;
+  font-weight: 500 ;
+  font-size: 18px ;
+}
+.sub-footer_2 ul{
+  font-family: 'IBM Plex Sans', sans-serif;', sans-serif; ;
+  font-weight: 300 ;
+  font-size: 18px ;
+  list-style-type: none;
+}
+.sub-footer_3{
+  grid-column-start: 3;
+}
+
+.sub-footer_3 span{
+  font-family: 'Poppins', sans-serif; ;
+  font-weight: 500 ;
+  font-size: 18px ;
+}
+
+.sub-footer_3 ul{
+  font-family: 'IBM Plex Sans', sans-serif;', sans-serif; ;
+  font-weight: 300 ;
+  font-size: 18px ;
+  list-style-type: none;
+}
+.sub-footer_4{
+  grid-column-start: 4;
+}
+
+
+/****scrollbar****/
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;

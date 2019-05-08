@@ -5,7 +5,7 @@ let angle2= 15; //rotazione quadrato
 var my_canvas = function(p){
 
   p.setup = function() {
-    var canvas = p.createCanvas(500,500, p.WEBGL);
+    var canvas = p.createCanvas(600,600, p.WEBGL);
     canvas.parent('sphere');
 
   }

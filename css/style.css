@@ -31,7 +31,7 @@ body {
 
 .top {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 25vw auto 25vw;
 
 }
 .goto-pipeline {
@@ -51,10 +51,7 @@ body {
   display: grid;
   grid-template-columns: 25vw auto 25vw;
 }
-.main_image #cuba{
-  grid-column-start: 2;
 
-}
 .main_image #sphere{
   grid-column-start: 2;
 
@@ -72,18 +69,24 @@ body {
   width:10vw;
 
 }
+
+
 .sidebar{
-  position: fixed;
+  grid-column-start:1;
+  position:sticky;
+  top:0;
   width: 23vw;
   font-family:'Poppins', sans-serif;
   font-weight: 400;
   font-size: 20px;
+
+
 }
 
 .main-title {
   grid-column-start: 2;
   font-family: 'Poppins',sans-serif;
-  font-size: 4em;
+  font-size: 3.5em;
   text-align: center;
   font-weight: 500;
 }
@@ -133,6 +136,7 @@ a:hover {
 .main-footer {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
+  margin-top: 100px;
 
 }
 

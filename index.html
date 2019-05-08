@@ -107,6 +107,8 @@
       <img src="img/2.2.png" width="100%" height="auto"><br>
       <p>We also investigated the features of Alpitour customers:</p>
       <img src="img/2.3.png" width="100%" height="auto">
+      <p>Using Moving Average Convergence Divergence we extracted seasonality features capturing the momentum in demand for each week. </p>
+      <img src="img/moving_average.png" width="60%" height="auto">
 
       <h2 class="sub-title" id="3">3.External data retrieval</h2>
       <h3 class="sub-sub-title">Italian Digital Media</h3>
@@ -214,12 +216,15 @@
           <img src="img/4.5.png" width="100%" height="auto"><br>
           We evaluated the performances of different regression models on validation set (2018) using a benchmark of predicting the mean departures:
         </li>
+        <img src="img/ratio.png" width="60%" height="auto">
+        <img src="table.1.png" width="100%" height="auto">
       </ol>
       <h3 class="sub-sub-title">Classification</h3>
       <p>In a first step, we modelled the problem as a classification problem.
         We classified the direction of average order demand per week in the next 1 to 3 months, reaching a final AUC values of 0.79.
   </p>
-  <p><!--Tabella !-->
+  <img src="table.2.png" width="100%" height="auto">
+  <p>
     Here we can see an example of how the data was labelled in order to fit and evaluate the classification models. This is referring to departures three months ahead:
     </p>
     <img src="img/4.6.png" width="100%" height="auto">

@@ -197,11 +197,17 @@
         The approach is articulated into different steps:
       </p>
       <ol>
-        <li>Abstract seasonality: we used an additive model to decompose the target Y[t], where t denotes the time step. An example target is the number of future departures per week:<br>
+        <li>Abstract seasonality: we used an additive model to decompose the target Y[t], where t denotes the time step. An example target is the number of future departures per week:
+          <br>
+          <span>Y[t] = S[t] + T[t] + E[t]</span>
           We reconstruct the target data Y[t] with the seasonality (S), trend (T), and residual (E).
+          <img src="img/4.2.png" width="100%" height="auto">
+          Here we can see a 52-week seasonality decomposition of departures per week:
+          <img src="img/4.3.png" width="100%" height="auto">
         </li>
         <li>
           Model trend: we modeled the trends with different regression model using useful features like booking data and external google search data.
+            <img src="img/4.4.png" width="100%" height="auto">
         </li>
         <li>
           Combine seasonality and trend: finally we added the two signals to obtain our final prediction.<br>

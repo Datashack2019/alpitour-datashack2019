@@ -1,18 +1,28 @@
 
 
-
-
+let angle = 0;
+let angle2= 15; //rotazione quadrato
 var my_canvas = function(p){
 
   p.setup = function() {
-    var canvas = p.createCanvas(500,500);
+    var canvas = p.createCanvas(500,500, p.WEBGL);
     canvas.parent('sphere');
 
   }
 
  p.draw = function() {
-    p.fill('red');
-    p.ellipse(p.mouseX,p.mouseY,100);
+   p.background(255,0,0,0);
+   p.push();
+   // Cubo che gira
+   p.stroke('blue');
+   p.strokeWeight(1.5);
+   p.noFill();
+   p.rotateY(p.frameCount/500);
+   p.rotateX(p.mouseY/50);
+   p.sphere(200);
+   p.angle += 0.005;
+   p.pop();
+
 
   }
 

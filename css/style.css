@@ -46,6 +46,16 @@ body {
 .top a{
   color: #000000;
 }
+
+.main_image {
+  display: grid;
+  grid-template-columns: 25vw auto 25vw;
+}
+.main_image #cuba{
+  grid-column-start: 2;
+
+}
+
 .page{
   display: grid;
   grid-template-columns: 25vw auto auto;
@@ -159,6 +169,7 @@ a:hover {
   font-size: 18px ;
   list-style-type: none;
 }
+
 .sub-footer_4{
   grid-column-start: 4;
 }

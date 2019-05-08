@@ -17,10 +17,26 @@
 <body class="parallax">
   <div class="top">
     <div class="goto-pipeline">
-    <a href="#">Go to the pipeline</a></div>
+      <a href="#">Go to the pipeline</a></div>
     <div class="goto-dashboard"><a href="#"> Go to the Github repo</a></div>
-    <h1 class="main-title">Alpitour predictive model</h1></div>
-    <div id="sphere"></div>
+    <h1 class="main-title">Alpitour predictive model</h1>
+  </div>
+  <div class="main_image">
+    <svg id="cuba" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 15">
+      <title>noun_Cuba_583648</title>
+      <path d="M45,18H41l-2-2H36l-8-5H25L23,9H21L19,7H13L12,8H9L4,10v2H1v1H6V12H8l2-2h5v1H13l1,1h7v1l4,2h3l1,2,2,2h4v1l-3,1v1H42l1-1h4Z" transform="translate(-1 -7)" />
+      <rect x="8" y="6" width="2" height="2" />
+      <rect x="30" y="4" width="3" height="1" />
+      <rect x="33" y="6" width="2" height="1" />
+      <rect x="21" width="1" height="1" />
+      <rect x="23" y="1" width="1" height="1" />
+      <rect x="13" y="7" width="1" height="1" />
+      <rect x="23" y="9" width="1" height="1" />
+      <rect x="24" y="10" width="1" height="1" />
+      <rect x="25" y="11" width="1" height="1" />
+    </svg>
+  </div>
+
 
 
   <div class="sidebar">
@@ -175,11 +191,12 @@
         <li>Ratio: the percentage of results from travel sites over all the results</li>
         <li>Rank: summation of the reciprocal of the rank of travel sites</li>
       </ul>
-        <p>Unfortunately, the extracted features are noisy, and uncorrelated with respect to orders data, :( as we can see from the image below where they have been both normalized between 0 and 1. </p>
-        <img src="img/3.3.png" width="90%" height="auto"><br>
+      <p>Unfortunately, the extracted features are noisy, and uncorrelated with respect to orders data, :( as we can see from the image below where they have been both normalized between 0 and 1. </p>
+      <img src="img/3.3.png" width="90%" height="auto"><br>
 
       <h2 class="sub-title" id="4">4.Pipeline</h2>
-      <p>Our first deliverable is a documented software pipeline which goes through all the development stages, from data cleaning to the final prediction. It is intended to be used by Alpitour data scientists/engineers to reproduce our results and to generalize the proposed approach to different destinations.
+      <p>Our first deliverable is a documented software pipeline which goes through all the development stages, from data cleaning to the final prediction. It is intended to be used by Alpitour data scientists/engineers to reproduce our results and
+        to generalize the proposed approach to different destinations.
         Code and documentation can be found <a href="#">Here</a>
       </p>
       <img src="img/4.1.png" width="100%" height="auto">
@@ -195,7 +212,7 @@
       </ul>
       <h3 class="sub-sub-title">Models</h3>
       <p>We explore both regression of future demand and binary classification of the direction of demand movement. Our most valuable contribution is an additive regression model
-         to predict time series results that will aid Alpitour supply managers in planning travel capacity.<br>
+        to predict time series results that will aid Alpitour supply managers in planning travel capacity.<br>
         The approach is articulated into different steps:
       </p>
       <ol>
@@ -209,7 +226,7 @@
         </li>
         <li>
           Model trend: we modeled the trends with different regression model using useful features like booking data and external google search data.
-            <img src="img/4.4.png" width="100%" height="auto">
+          <img src="img/4.4.png" width="100%" height="auto">
         </li>
         <li>
           Combine seasonality and trend: finally we added the two signals to obtain our final prediction.<br>
@@ -217,70 +234,70 @@
           We evaluated the performances of different regression models on validation set (2018) using a benchmark of predicting the mean departures:
         </li>
         <img src="img/ratio.png" width="60%" height="auto">
-        <img src="table.1.png" width="100%" height="auto">
+        <img src="img/table.1.png" width="80%" height="auto">
       </ol>
       <h3 class="sub-sub-title">Classification</h3>
       <p>In a first step, we modelled the problem as a classification problem.
         We classified the direction of average order demand per week in the next 1 to 3 months, reaching a final AUC values of 0.79.
-  </p>
-  <img src="table.2.png" width="100%" height="auto">
-  <p>
-    Here we can see an example of how the data was labelled in order to fit and evaluate the classification models. This is referring to departures three months ahead:
-    </p>
-    <img src="img/4.6.png" width="100%" height="auto">
-    <p>Moving average convergence divergence (MACD) was used to capture the momentum in demand for each time step (week). Specifically:</p>
-    <ul>
-      <li>MACD line: MA(ORD,12) - MA(ORD,26)</li>
-      <li>Signal line: MA(MACD, 9)</li>
-      <li>Up: if MACD > Signal</li>
-    </ul>
+      </p>
+      <img src="img/table.2.png" width="100%" height="auto">
+      <p>
+        Here we can see an example of how the data was labelled in order to fit and evaluate the classification models. This is referring to departures three months ahead:
+      </p>
+      <img src="img/4.6.png" width="100%" height="auto">
+      <p>Moving average convergence divergence (MACD) was used to capture the momentum in demand for each time step (week). Specifically:</p>
+      <ul>
+        <li>MACD line: MA(ORD,12) - MA(ORD,26)</li>
+        <li>Signal line: MA(MACD, 9)</li>
+        <li>Up: if MACD > Signal</li>
+      </ul>
       <h2 class="sub-title" id="5">5.Dashboard</h2>
       <h3 class="sub-sub-title">The user</h3>
       <p>The Dashboard is one of the two final deliverables. The intended user of the dashboard is the supply manager of Alpitour.
         The skills of the Supply manager are:</p>
-        <ul>
-          <li>Managing the company supply chain by booking flights and hotels</li>
-          <li>A strategic point of view, but no Knowledge of code </li>
-        </ul>
-        <p>With the dashboard it will be possible to visualize the predictions of each airport served by Alpitour in Cuba</p>
-        <h3 class="sub-sub-title">The deliverable</h3>
-        <p>The Dashboard visualizes the predictions of the model with a trendline for each airport.
-          The first screen shows the map of Cuba with all the airports that are used by Alpitour:
-        </p>
-        <ul>
-          <li>Camagüey-CMW</li>
-          <li>Havana-HVA</li>
-          <li>Holguín-HOG</li>
-          <li>Santa Clara-SNU</li>
-          <li>Santiago de Cuba-SCU</li>
-          <li>Varadero-VRO</li>
-        </ul>
+      <ul>
+        <li>Managing the company supply chain by booking flights and hotels</li>
+        <li>A strategic point of view, but no Knowledge of code </li>
+      </ul>
+      <p>With the dashboard it will be possible to visualize the predictions of each airport served by Alpitour in Cuba</p>
+      <h3 class="sub-sub-title">The deliverable</h3>
+      <p>The Dashboard visualizes the predictions of the model with a trendline for each airport.
+        The first screen shows the map of Cuba with all the airports that are used by Alpitour:
+      </p>
+      <ul>
+        <li>Camagüey-CMW</li>
+        <li>Havana-HVA</li>
+        <li>Holguín-HOG</li>
+        <li>Santa Clara-SNU</li>
+        <li>Santiago de Cuba-SCU</li>
+        <li>Varadero-VRO</li>
+      </ul>
       <img src="img/5.1.png" width="100%" height="auto">
-        <p>The user can select the airport he wants to see and by clicking both on the map or on the buttons on the side of the screen.
+      <p>The user can select the airport he wants to see and by clicking both on the map or on the buttons on the side of the screen.
         The airport selected will be highlighted in orange, in this case is the Havana one. The map will zoom on the airport selected.</p>
       <img src="img/5.2.png" width="100%" height="auto">
-        <p>By clicking on "see the data" it is possible to see in details the prediction for that airport.
-          The orange line is the prediction given by the model up to one year in the future. The white line is the capacity, which is the number of plane reservations bought by Alpitour to be sold to the customers.
-          The Yellow line shows the Number of orders already purchased by Alpitour’s customers.
-          When the yellow line stops, it means that alpitour still has not started to sold the flights for that time of the year.</p>
-        <img src="img/5.3.png" width="100%" height="auto">
-          <p>By using a calendar, it is possible to select the period of time, in months that the users wants to see in detail. In this case between May and July 2019.
-            The trendline will adjust to the new period of time and will highlight the weeks.</p>
+      <p>By clicking on "see the data" it is possible to see in details the prediction for that airport.
+        The orange line is the prediction given by the model up to one year in the future. The white line is the capacity, which is the number of plane reservations bought by Alpitour to be sold to the customers.
+        The Yellow line shows the Number of orders already purchased by Alpitour’s customers.
+        When the yellow line stops, it means that alpitour still has not started to sold the flights for that time of the year.</p>
+      <img src="img/5.3.png" width="100%" height="auto">
+      <p>By using a calendar, it is possible to select the period of time, in months that the users wants to see in detail. In this case between May and July 2019.
+        The trendline will adjust to the new period of time and will highlight the weeks.</p>
       <img src="img/5.4.png" width="100%" height="auto">
-          <p>By  clicking on the trendline the user is able to see the details about a certain week:</p>
-          <ul>
-            <li>Week Selected</li>
-            <li>Predicted passengers</li>
-            <li>Capacity</li>
-            <li>Orders purchased</li>
-          </ul>
+      <p>By clicking on the trendline the user is able to see the details about a certain week:</p>
+      <ul>
+        <li>Week Selected</li>
+        <li>Predicted passengers</li>
+        <li>Capacity</li>
+        <li>Orders purchased</li>
+      </ul>
 
-        <img src="img/5.5.png" width="100%" height="auto">
+      <img src="img/5.5.png" width="100%" height="auto">
 
-          <span>This video shows the interactions of the dashboard:</span>
-          <video width="100%" height="auto" controls>
-            <source src="img/dashboard_animation.mp4" type="video/mp4">
-          </video>
+      <span>This video shows the interactions of the dashboard:</span>
+      <video width="100%" height="auto" controls>
+        <source src="img/dashboard_animation.mp4" type="video/mp4">
+      </video>
 
 
 
@@ -291,7 +308,8 @@
         <li>Additive model with a Gaussian process regression on the trend to predict the orders and departures per city in Cuba for up to a year in advance.</li>
         <li>Binary classification of average future weekly order demand (increase or decrease) using a fully-connected neural network.</li>
       </ul>
-      <p>In addition to these models, we provide the company with a generalized code repository that will be a pipeline for software engineers and data scientists to replicate our methodology and expand the predictive capability to different destinations.
+      <p>In addition to these models, we provide the company with a generalized code repository that will be a pipeline for software engineers and data scientists to replicate our methodology and expand the predictive capability to different
+        destinations.
         This is the result of our final prediction for L’Avana. Gaussian process regressor provides a confidence interval with upper and lower bounds for the predicted values.
         In this way, the supply manager can also take into account quantitatively the possible errors of the future predictions and make his decision accordingly.
       </p>
@@ -310,9 +328,9 @@
   <footer>
     <div class="main-footer">
       <div class="sub-footer_1">
-      <p>Copyright: <br> Datashack project 2019</p>
-    </div>
-    <div class="sub-footer_2">
+        <span>Copyright: <br> Datashack project 2019</span>
+      </div>
+      <div class="sub-footer_2">
         <span>Created By</span>
         <ul>
           <li>Yuting Kou</li>
@@ -320,23 +338,27 @@
           <li>Eleonora Cappuccio</li>
           <li>Tommaso Scarlatti</li>
         </ul>
-    </div>
-    <div class="sub-footer_3">
-      <span>Faculty</span>
-      <ul>
-        <li>Paola Bertola</li>
-        <li>Marco Brambilla</li>
-        <li>Stefano Ceri</li>
-        <li>Paolo Ciuccarelli</li>
-        <li>Michele Mauri</li>
-        <li>Patrick Ohiomoba</li>
-        <li>Pavlos Protopapas</li>
-        <li>David Sondak</li>
-      </ul>
-    <div class="sub-footer_4">
-      <p>Immagini</p>
-    </div>
-  </div>
+      </div>
+      <div class="sub-footer_3">
+        <span>Faculty</span>
+        <ul>
+          <li>Paola Bertola</li>
+          <li>Marco Brambilla</li>
+          <li>Stefano Ceri</li>
+          <li>Paolo Ciuccarelli</li>
+          <li>Michele Mauri</li>
+          <li>Patrick Ohiomoba</li>
+          <li>Pavlos Protopapas</li>
+          <li>David Sondak</li>
+        </ul>
+      </div>
+      <div class="sub-footer_4">
+        <img src="img/alpitour_logo.png" width="20%" height="auto">
+        <img src="img/harvard_logo.png" width="20%" height="auto">
+        <img src="img/poli_logo.png" width="20%" height="auto">
+
+      </div>
+
 
   </footer>
 

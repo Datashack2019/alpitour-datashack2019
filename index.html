@@ -52,38 +52,7 @@
         <p>Using Cuba as a case study, this project aims to use internal company booking data and external online/media information to build a predicting model for the future demand of orders and departures of Alpitour customers.
           Accurate predictions of orders and departures will allow Alpitour to better understand user patterns, capitalize on high predicted order/departure demand, and avoid overspending on planned trips when demand is low.
         </p>
-        <h3 class="sub-sub-title">Business Value</h3>
-        <p>Alpitour books flights up to 1 year in advance, so they need predictions of departures up to 1 year in advance: If Alpitour doesn’t fill its capacity, it may lose money.
-          Moreover If Alpitour fills its capacity, maybe it could have sold more trips.
-          We want to quantify the value Alpitour can gain by using our model,
-          Using the predicted departures for each week in the validation set 2018 as the updated capacity and
-          comparing the value lost by Alpitour using its current planned capacity vs. the capacity from our predicted departures
-        </p>
-        <h3 class="sub-sub-title">Estimated Business Value</h3>
-        <p>In week t, Yt is our target variable (departures). Pt is Alpitour’s price/person for a flight for a booked trip in week t, estimated at 10% of the avg. price/person for a booked trip at week t</p>
-        <span>Value lost using current planned capacity:</span>
-        <ul>
-        <li>If Ct > Yt then Alpitour does not fill its capacity and loses value: Pt * (Ct - Yt)</li>
-        <li>If Yt > Ct then Alpitour could book more flights: Pt *(Yt - Ct)  </li>
-        </ul>
-        <span>Value lost with predicted departures Y’t as capacity instead of planned capacity:</span>
-        <span>If Y’t > Yt then:</span>
-        <ul>
-        <li>if Yt < Ct:         Pt * (Y’t - Yt)    Booked more flights than demand</li>
-        <li>if Yt > Ct:         0				      Earn back the potential demand</li>
-        </ul>
-        <span> If Yt > Y’t then Alpitour could book more flights and increase revenue: </span>
-          <ul>
-            <li>Pt * (Yt - Y’t)    (opportunity cost)</li>
-          </ul>
-          <p> Unbooked value lost using current capacity:€ 505,413.52<br>
-            Unbooked value lost using predicted departures as the planned capacity:
-            € 440,070.02<br>
 
-            We save € 65,343.50 of value for the Cuba case in 2018
-            This is revenue, not profit, so the true profit will be smaller and it
-           depends on Alpitour’s operating profit margin
-</p>
 
 
         <h3 class="sub-sub-title">Deliverables</h3>
@@ -278,6 +247,38 @@
           <li>Signal line: MA(MACD, 9)</li>
           <li>Up: if MACD > Signal</li>
         </ul>
+        <h3 class="sub-sub-title">Business Value</h3>
+        <p>Alpitour books flights up to 1 year in advance, so they need predictions of departures up to 1 year in advance: If Alpitour doesn’t fill its capacity, it may lose money.
+          Moreover If Alpitour fills its capacity, maybe it could have sold more trips.
+          We want to quantify the value Alpitour can gain by using our model,
+          Using the predicted departures for each week in the validation set 2018 as the updated capacity and
+          comparing the value lost by Alpitour using its current planned capacity vs. the capacity from our predicted departures
+        </p>
+        <h3 class="sub-sub-title">Estimated Business Value</h3>
+        <p>In week t, Yt is our target variable (departures). Pt is Alpitour’s price/person for a flight for a booked trip in week t, estimated at 10% of the avg. price/person for a booked trip at week t</p>
+        <span>Value lost using current planned capacity:</span>
+        <ul>
+        <li>If Ct > Yt then Alpitour does not fill its capacity and loses value: Pt * (Ct - Yt)</li>
+        <li>If Yt > Ct then Alpitour could book more flights: Pt *(Yt - Ct)  </li>
+        </ul>
+        <img src="img/business_1.png" width="100%" height="auto">
+        <span>Value lost with predicted departures Y’t as capacity instead of planned capacity:</span>
+        <span>If Y’t > Yt then:</span>
+        <ul>
+        <li>if Yt < Ct:         Pt * (Y’t - Yt)    Booked more flights than demand</li>
+        <li>if Yt > Ct:         0				      Earn back the potential demand</li>
+        </ul>
+        <span> If Yt > Y’t then Alpitour could book more flights and increase revenue: </span>
+          <ul>
+            <li>Pt * (Yt - Y’t)    (opportunity cost)</li>
+          </ul>
+          <img src="img/business_2.png" width="100%" height="auto">
+          <p> Unbooked value lost using current capacity:€ 505,413.52<br>
+            Unbooked value lost using predicted departures as the planned capacity:<br>
+            €440,070.02<br>
+
+            We save € 65,343.50 of value for the Cuba case in 2018:
+            this is revenue, not profit, so the true profit will be smaller and it depends on Alpitour’s operating profit margin</p>
         <h2 class="sub-title" id="5">5.Dashboard</h2>
         <h3 class="sub-sub-title">The user</h3>
         <p>The Dashboard is one of the two final deliverables. The intended user of the dashboard is the supply manager of Alpitour.

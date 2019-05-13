@@ -64,7 +64,7 @@
         </p>
 
         <h2 class="sub-title" id="2">2. Internal Data and EDA</h2>
-        <p>We were given access to internal data of the company 
+        <p>We were given access to internal data of the company
           of the past four years regarding Cuba. Specifically:</p>
         <p>Booking data from Italy to Cuba:</p>
         <ul>
@@ -107,7 +107,7 @@
         <br>
         <img src="img/2.1.png" width="90%" height="auto">
         <br>
-        <p>This shows the dependencies of the datasets in question. If any of the data changes, Alpitour should update all datasets that are "downstream" (i.e. there are arrows leaving the dataset to some other dataset that should be updated). Due to the sparsity of data of the datasets provided, we decided to use a timestep of a week, aggregating values referring to days of the same week. Otherwise, there is simply too much noise in the data. For example, if a given week has 300 orders, it's possible that 250 were on a single day, with the remaining 50 spread across 6 other days. This would be difficult for a model to learn, since the fluctations would be so drastic. Therefore, it is better to aggregate our data by week. We do this for all of our features from both internal and external data, so that our models can consider a snapshot of features for a given week, whether using time series models or not. 
+        <p>This shows the dependencies of the datasets in question. If any of the data changes, Alpitour should update all datasets that are "downstream" (i.e. there are arrows leaving the dataset to some other dataset that should be updated). Due to the sparsity of data of the datasets provided, we decided to use a timestep of a week, aggregating values referring to days of the same week. Otherwise, there is simply too much noise in the data. For example, if a given week has 300 orders, it's possible that 250 were on a single day, with the remaining 50 spread across 6 other days. This would be difficult for a model to learn, since the fluctations would be so drastic. Therefore, it is better to aggregate our data by week. We do this for all of our features from both internal and external data, so that our models can consider a snapshot of features for a given week, whether using time series models or not.
         </p>
         <p>Here we can see the plot of orders and departures from January 2014 to January 2019:
         </p>
@@ -165,7 +165,7 @@
           <li>0: neutral</li>
           <li>(0, 1]: positive</li>
         </ul>
-        <p>From these values, we were able to extract weekly features such as the number of articles per week (large volume is correlated with large orders), percentage of positive vs. negative news, average level of positivity among positive news, etc. 
+        <p>From these values, we were able to extract weekly features such as the number of articles per week (large volume is correlated with large orders), percentage of positive vs. negative news, average level of positivity among positive news, etc.
         </p>
         <img src="img/3.1.png" width="90%" height="auto"><br>
         <p> In the above plots, we plot the distribution of the sentiment scores conditioned on whether the response variable is up or down. In this case, the response variable is whether or not the average orders/week increases over the next 1 month compared to the current week. Since we see a a non-uniform distribution of the sentiment scores, we expect them to have some predictive capability. However, we discovered empirically that these were not helpful in predicting future orders.
@@ -218,7 +218,7 @@
         <p>However, although the results were good and could help Alpitour to know when there will be surges in orders, Alpitour would ideally receive this information on a finer granularity, and so we also explored regression.</p>
 
         <h3 class="sub-sub-title">Regression</h3>
-          <p>For regression, we first tried to predict the average number of departures/week in the next 1-3 months using random forest regression, and achieved R^2 values of about 0.85. Although this was good, again, we needed finer granularity. So, we tried to predict the number of departures/week for each of the next 12 weeks:</p>
+          <p>For regression, we first tried to predict the average number of departures/week in the next 1-3 months using random forest regression, and achieved R<sup>2</sup> values of about 0.85. Although this was good, again, we needed finer granularity. So, we tried to predict the number of departures/week for each of the next 12 weeks:</p>
       <img src="img/websiteregweek1.png" width="48%" height="auto"> <img src="img/websiteregweek12.png" width="48%" height="auto">
       <p>As we see in these plots, the regression works reasonably well for predicting 1 week ahead, but the performance is much worse for predicting 12 weeks ahead. When we met with Alpitour in Italy, and they explained to us their situation of planning capacity up to a year in advance, and therefore they need predictions not only on a per-week basis, but up to a full year. This was challenging, since we had just shown that our model for predicting the 12th week did not perform well. After reaching this point, we began to consider time series models. </p>
       <p>Within time series models, we used three models that performed poorly, and one model that was great. The first three models were ARIMA, which was limited by the features it could use at each time step. The second was a Gaussian process with a seasonality kernel, which did not learn the stochastic process of our data. The third was an LSTM network, which performed very well for predicting 1 week ahead, but was too general when trying to predict a full year ahead. Examples of these LSTM plots are included below. Next, we will explain the best model.</p>
@@ -256,28 +256,28 @@
         <p>We want to quantify the value Alpitour can gain by using our model by using the predicted departures for each week in the validation set (2018) as the updated capacity Y'. By comparing the value lost by Alpitour using its current planned capacity vs. the capacity from our predicted departures, we can estimate the money we earn back for them.</p>
         <p>In the validation set (year of 2018), for each week t, we have:</p>
         <ul>
-          <li> P_t: Alpitour’s price/person for a flight for a booked trip in week t, estimated at 10% of the avg. price/person for a total trip at week t</li>
-          <li> Y_t: actual number of departures to Cuba</li>
-          <li> C_t: 2018 capacity planned by Alpitour</li>
-          <li> Y'_t: predicted departure of our models as the updated capacity</li>
+          <li> P<sub>t</sub>: Alpitour’s price/person for a flight for a booked trip in week t, estimated at 10% of the avg. price/person for a total trip at week t</li>
+          <li> Y<sub>t</sub>: actual number of departures to Cuba</li>
+          <li> C<sub>t</sub>: 2018 capacity planned by Alpitour</li>
+          <li> Y'<sub>t</sub>: predicted departure of our models as the updated capacity</li>
         </ul>
         Using the current planned capacity instead of our predicted departures as capacity, we have:
         <br>
-        <span>Loss = P_t * |Y_t – C_t|</span><br>
+        <span>Loss = P<sub>t</sub> * |Y<sub>t</sub> – C<sub>t</sup>|</span><br>
         This loss measure the two types of loss from Alpitour for current capacity:
         <ul>
-          <li>If C_t > Y_t then Alpitour does not fill its capacity and loses value (shown in red region).</li>
-          <li>If Y_t > C_t then Alpitour could book more flights and loses the potential revenues (shown in pink region).</li>
+          <li>If C<sub>t</sub> > Y<sub>t</sub> then Alpitour does not fill its capacity and loses value (shown in red region).</li>
+          <li>If Y<sub>t</sub> > C<sub>t</sub> then Alpitour could book more flights and loses the potential revenues (shown in pink region).</li>
         </ul>
         <img src="img/business_1.png" width="100%" height="auto">
 
-        <p>When we calculate the loss using our model result of predicted departures, there is a tiny update for the case when Y'_t > Y_t:</p>
+        <p>When we calculate the loss using our model result of predicted departures, there is a tiny update for the case when Y'<sub>t</sub> > Y<sub>t</sub>:</p>
         <ul>
-          <li>If Y'_t > Y_t and Y_t >= C_t: actual departure was limited by Alpitour capacity, and Alpitour should plan more seats for those weeks. Therefore, this difference of Y'_t > Y_t should not be considered as loss (shown in green region)</li>
-          <li>If Y'_t > Y_t and Y_t <= C_t: actual departure reflects the true demands, and therefore our model is over-optimistic and loses value by not filling its capacity (same calculation as the red region in the previous plot).</li>
+          <li>If Y'<sub>t</sub> > Y<sub>t</sub> and Y<sub>t</sub> >= C<sub>t</sub>: actual departure was limited by Alpitour capacity, and Alpitour should plan more seats for those weeks. Therefore, this difference of Y'<sub>t</sub> > Y<sub>t</sub> should not be considered as loss (shown in green region)</li>
+          <li>If Y'<sub>t</sub> > Y<sub>t</sub>and Y<sub>t</sub> <= C<sub>t</sub>: actual departure reflects the true demands, and therefore our model is over-optimistic and loses value by not filling its capacity (same calculation as the red region in the previous plot).</li>
          </ul>
         </p>
-        <p>Otherwise, if Y'_t <= Y_t, then Alpitour could book more flight and increase revenue, so there is opportunity cost of P_t * (Y_t - Y'_t)</p>
+        <p>Otherwise, if Y'<sub>t</sub> <= Y<sub>t</sub>, then Alpitour could book more flight and increase revenue, so there is opportunity cost of P<sub>t</sub> * (Y<sub>t</sub> - Y'<sub>t</sub>)</p>
           <img src="img/business_2.png" width="100%" height="auto">
           <p> Unbooked value lost using current capacity: <br><span>€505,413.52</span><br>
             Unbooked value lost using predicted departures as the planned capacity:<br>
